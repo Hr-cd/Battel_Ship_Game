@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Battleship - Multiplayer Online Game</title>
+    </head>
+
+    <body>
+
+        <h1>Battleship</h1>
+
+        <!-- ==================== -->
+        <!-- MULTIPLAYER LOBBY -->
+        <!-- ==================== -->
+
+    <section id="lobby">
+
+            <!-- GAME MODE -->
+            <div id="mode-selection">
+
+                <h2>Choose Game Mode</h2>
+
+                <button type="button" id="computer-mode-btn">
+                    Play Computer
+                </button>
+
+                <button type="button" id="online-mode-btn">
+                    Play Online
+                </button>
+
+            </div>
+
+
+            <!-- ONLINE LOBBY -->
+            <div id="online-lobby" hidden>
+
+                <h2>Online Multiplayer</h2>
+
+                <button type="button" id="create-game-btn">
+                    Create Game
+                </button>
+
+                <div class="join-section">
+
+                    <input
+                        type="text"
+                        id="room-code-input"
+                        placeholder="Enter Room Code"
+                        maxlength="6"
+                        autocomplete="off"
+                        aria-label="Room code"
+                    >
+
+                    <button type="button" id="join-game-btn">
+                        Join Game
+                    </button>
+
+                </div>
+
+                <div class="room-info">
+                    Room:
+                    <strong id="online-room-code"></strong>
+                </div>
+
+                <p id="lobby-status"></p>
+
+                <button type="button" id="back-to-mode-btn">
+                    Back
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section id="online-game" hidden>
+
+            <h2>Online Game</h2>
+
+            <div class="room-info">
+                Room:
+                <strong id="online-room-code"></strong>
+            </div>
+
+            <p id="online-status">
+                Place your ships
+            </p>
+
+            <div class="boards">
+
+                <div class="board-container">
+
+                    <h2>Your Board</h2>
+
+                    <div
+                        id="online-player-board"
+                        class="board"
+                    ></div>
+
+                </div>
+
+                <div class="board-container">
+
+                    <h2>Opponent Board</h2>
+
+                    <div
+                        id="online-opponent-board"
+                        class="board"
+                    ></div>
+
+                </div>
+
+            </div>
+
+            <div class="online-controls">
+
+                <button type="button" id="randomize-ships-btn">
+                    Randomize Ships
+                </button>
+
+                <button type="button" id="ready-btn">
+                    Ready
+                </button>
+
+            </div>
+
+            <div class="rematch-controls">
+
+                <button type="button" id="play-again-btn" hidden>
+                    Play Again
+                </button>
+
+                <button type="button" id="back-to-menu-btn">
+                    Back to Menu
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== -->
+        <!-- GAME -->
+        <!-- ==================== -->
+
+        <section id="game" hidden>
+
+            <h2 id="status">Your Turn</h2>
+
+            <div class="room-info">
+                Room:
+                <strong id="room-code-display"></strong>
+            </div>
+
+            <div class="boards">
+
+                <div class="board-container">
+
+                    <h2>Your Board</h2>
+
+                    <div
+                        id="player-board"
+                        class="board"
+                    ></div>
+
+                </div>
+
+
+                <div class="board-container">
+
+                    <h2>Opponent Board</h2>
+
+                    <div
+                        id="computer-board"
+                        class="board"
+                    ></div>
+
+                </div>
+
+            </div>
+
+            <button id="restart-btn">
+                New Game
+            </button>
+
+        </section>
+
+    </body>
+</html>

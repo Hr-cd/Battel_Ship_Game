@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    background: #202124;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.boards {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.board-container {
+    text-align: center;
+}
+
+.board {
+    margin-top: 15px;
+
+    display: grid;
+
+    grid-template-columns: repeat(10,40px);
+
+    grid-template-rows: repeat(10,40px);
+
+    gap: 2px;
+}
+
+/* .cell {
+
+    width:40px;
+    height:40px;
+
+    border:1px solid white;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+} */
+ .cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    background: #dbeafe;
+    cursor: default;
+    transition: 0.15s ease;
+}
+.cell.ship {
+    background: #555;
+}
+.cell.hit {
+    background: crimson;
+    position: relative;
+}
+.cell.hit::after {
+    content: "×";
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.cell.miss {
+    background: #93c5fd;
+    position: relative;
+}
+.cell.miss::after {
+    content: "•";
+    color: #1e3a8a;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.ship{
+
+    background:#4CAF50;
+
+}
+
+.hit{
+
+    background:red;
+
+}
+
+.miss{
+
+    background:#888;
+
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    width: max-content;
+    margin: 0 auto;
+}
+
+#online-opponent-board .cell:not(.hit):not(.miss) {
+    cursor: crosshair;
+}
+
+#online-opponent-board .cell:not(.hit):not(.miss):hover {
+    background: #bfdbfe;
+}
+
+#restart-btn{
+
+    margin-top:20px;
+    
+    margin-left:45%;
+
+    padding:12px 28px;
+
+    font-size:18px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    background:#2196F3;
+
+    color:white;
+
+    transition:.25s;
+
+}
+
+#restart-btn:hover{
+
+    background:#1976D2;
+
+    transform:scale(1.05);
+
+}
+
+#restart-btn:active{
+
+    transform:scale(.97);
+
+}
+
+#status{
+
+    width: fit-content;
+
+    margin: 20px auto;
+
+    padding: 12px 30px;
+
+    background: #2d2d2d;
+
+    color: #ffffff;
+
+    font-size: 1.6rem;
+
+    font-weight: bold;
+
+    border: 2px solid #4CAF50;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    letter-spacing: 1px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.35);
+
+    transition: all .3s ease;
+
+}
+
+/* ==================== */
+/* MULTIPLAYER LOBBY */
+/* ==================== */
+
+#lobby {
+    width: min(500px, 90%);
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 12px;
+}
+
+#lobby h2 {
+    margin-bottom: 25px;
+}
+
+#create-game-btn,
+#join-game-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#create-game-btn {
+    margin-bottom: 25px;
+}
+
+.join-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#room-code-input {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#lobby-status {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.room-info {
+    width: fit-content;
+    margin: 10px auto 20px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: #eee;
+}
+
+#mode-selection {
+    width: min(500px, 90%);
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 12px;
+}
+
+#mode-selection button {
+    display: block;
+    width: 220px;
+    margin: 15px auto;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#online-lobby {
+    width: min(500px, 90%);
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 12px;
+}
+
+#back-to-mode-btn {
+    margin-top: 20px;
+}
+
+#online-status {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.status-your-turn {
+    color: green;
+}
+
+.status-opponent-turn {
+    color: #555;
+}
+
+.status-win {
+    color: green;
+    font-size: 22px;
+}
+
+.status-lose {
+    color: crimson;
+    font-size: 22px;
+}
+
+.status-waiting {
+    color: #b8860b;
+}
+
+.status-error {
+    color: crimson;
+}
+
+#online-opponent-board.board-disabled {
+    opacity: 0.65;
+}
+
+#online-opponent-board.board-disabled .cell {
+    cursor: not-allowed;
+}
+
+#online-opponent-board.board-active .cell:not(.hit):not(.miss) {
+    cursor: crosshair;
+}
+
+#online-opponent-board.board-active .cell:not(.hit):not(.miss):hover {
+    transform: scale(1.05);
+}
+
+.room-info {
+    text-align: center;
+    margin: 10px 0 20px;
+    font-size: 16px;
+}
+
+.room-info strong {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: #eee;
+    letter-spacing: 2px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button:not(:disabled):focus-visible,
+input:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .board {
+        grid-template-columns: repeat(10, 30px);
+        grid-template-rows: repeat(10, 30px);
+    }
+
+    .cell {
+        width: 30px;
+        height: 30px;
+    }
+
+    .cell.hit::after,
+    .cell.miss::after {
+        font-size: 20px;
+    }
+}

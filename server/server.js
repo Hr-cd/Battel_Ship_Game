@@ -13,6 +13,7 @@ import {
 
 const app = express();
 
+const clientUrl = process.env.CLIENT_URL || "http://localhost:8080";
 app.use(
     cors({
         origin: clientUrl
@@ -20,7 +21,6 @@ app.use(
 );
 
 const httpServer = createServer(app);
-const clientUrl = process.env.CLIENT_URL || "http://localhost:8080";
 
 const io = new Server(httpServer, {
     cors: {

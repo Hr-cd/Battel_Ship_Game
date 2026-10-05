@@ -403,7 +403,7 @@ socket.on("game-over", ({ winner }) => {
     if (winner === socket.id) {
         updateOnlineStatus("You Win!", "win");
     } else {
-        updateOnlineStatus("You Win!", "win");
+        updateOnlineStatus("You Lose!", "lose");
     }
 });
 
@@ -464,17 +464,17 @@ function prepareOnlineRematch(roomCode) {
 // START GAME
 // ====================
 
-function startGame() {
+// function startGame() {
 
-    battleshipGame =
-        new GameController();
+//     battleshipGame =
+//         new GameController();
 
-    status.textContent =
-        "Game started!";
+//     status.textContent =
+//         "Game started!";
 
-    render();
+//     render();
 
-}
+// }
 
 function handleOnlineAttack(row, col) {
     if (!onlineGame) return;
@@ -495,10 +495,10 @@ function handleOnlineAttack(row, col) {
     });
 }
 
-function endOnlineGame() {
-    randomizeShipsBtn.disabled = true;
-    readyBtn.disabled = true;
-}
+// function endOnlineGame() {
+//     randomizeShipsBtn.disabled = true;
+//     readyBtn.disabled = true;
+// }
 
 function setupOnlineShips() {
     const gameboard = new Gameboard();

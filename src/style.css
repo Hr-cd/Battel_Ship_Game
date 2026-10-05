@@ -94,24 +94,6 @@ h1 {
     height: 100%;
 }
 
-.ship{
-
-    background:#4CAF50;
-
-}
-
-.hit{
-
-    background:red;
-
-}
-
-.miss{
-
-    background:#888;
-
-}
-
 .board {
     display: grid;
     grid-template-columns: repeat(10, 40px);
@@ -245,13 +227,13 @@ h1 {
     font-weight: bold;
 }
 
-.room-info {
+/* .room-info {
     width: fit-content;
     margin: 10px auto 20px;
     padding: 8px 18px;
     border-radius: 8px;
     background: #eee;
-}
+} */
 
 #mode-selection {
     width: min(500px, 90%);

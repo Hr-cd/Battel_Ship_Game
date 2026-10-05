@@ -14,7 +14,7 @@
         <!-- MULTIPLAYER LOBBY -->
         <!-- ==================== -->
 
-    <section id="lobby">
+        <section id="lobby">
 
             <!-- GAME MODE -->
             <div id="mode-selection">
@@ -42,25 +42,22 @@
                 </button>
 
                 <div class="join-section">
-
-                    <input
+                    <label for="room-code-input">
+                        Room Code
+                        <input
                         type="text"
                         id="room-code-input"
                         placeholder="Enter Room Code"
                         maxlength="6"
                         autocomplete="off"
                         aria-label="Room code"
-                    >
+                        >
+                    </label>
 
                     <button type="button" id="join-game-btn">
                         Join Game
                     </button>
 
-                </div>
-
-                <div class="room-info">
-                    Room:
-                    <strong id="online-room-code"></strong>
                 </div>
 
                 <p id="lobby-status"></p>

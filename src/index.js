@@ -17,6 +17,10 @@ import OnlineGame from "./online/OnlineGame.js";
 
 const lobby = document.querySelector("#lobby");
 
+const createdRoom = document.querySelector("#created-room");
+
+const lobbyRoomCode = document.querySelector("#lobby-room-code");
+
 const createGameBtn =
     document.querySelector("#create-game-btn");
 
@@ -433,6 +437,15 @@ socket.on("room-error", ({ message }) => {
 
 });
 
+socket.on("room-created", ({ roomCode }) => {
+    lobbyRoomCode.textContent = roomCode;
+    createdRoom.hidden = false;
+
+    lobbyStatus.textContent = "Waiting for opponent...";
+
+    createGameBtn.disabled = true;
+});
+
 socket.on("attack-error", ({ message }) => {
     onlineAttackLocked = false;
 
@@ -692,6 +705,10 @@ function returnToMenu() {
 
     playAgainBtn.hidden = true;
     playAgainBtn.disabled = false;
+
+    createdRoom.hidden = true;
+    lobbyRoomCode.textContent = "";
+    createGameBtn.disabled = false;
 }
 
 function updateOnlineStatus(message, type = "") {

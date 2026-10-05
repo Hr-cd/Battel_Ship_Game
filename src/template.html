@@ -41,18 +41,24 @@
                     Create Game
                 </button>
 
+                <div id="created-room" hidden>
+                    <p>Share this room code with Player 2:</p>
+                    <strong id="lobby-room-code"></strong>
+                </div>
+
                 <div class="join-section">
                     <label for="room-code-input">
                         Room Code
-                        <input
+                    </label>
+                    
+                    <input
                         type="text"
                         id="room-code-input"
                         placeholder="Enter Room Code"
                         maxlength="6"
                         autocomplete="off"
                         aria-label="Room code"
-                        >
-                    </label>
+                    >
 
                     <button type="button" id="join-game-btn">
                         Join Game
@@ -74,11 +80,6 @@
         <section id="online-game" hidden>
 
             <h2>Online Game</h2>
-
-            <div class="room-info">
-                Room:
-                <strong id="online-room-code"></strong>
-            </div>
 
             <p id="online-status">
                 Place your ships
